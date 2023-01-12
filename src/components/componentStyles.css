@@ -1,0 +1,9 @@
+.ForecastCard{
+    background-color: azure;
+    color: darkgrey;
+    border-radius: 8px;
+}
+
+.WeatherForecast{
+    max-width: 500px;
+}
