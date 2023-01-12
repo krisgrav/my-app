@@ -5,6 +5,7 @@ import { Forecast } from "./Forecast";
 
 export function WeatherForecast(){
 
+    /*
     const [data, setData] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -21,7 +22,7 @@ export function WeatherForecast(){
 
     if(data){
         console.log(data)
-    }
+    }*/
 
     return(
         <div className="WeatherForecast">
