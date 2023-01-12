@@ -14,7 +14,6 @@ function getCurrentSerie(data){
 }
 
 function dataFormatter(data){
-    console.log(data)
     const currentTimeSerie = getCurrentSerie(data)
     return({
         currentTimeserie: currentTimeSerie,
@@ -107,24 +106,19 @@ export function Forecast(props){
         let wind_speed_of_gust = actualData.wind_speed_of_gust
         wind_speed_of_gust = "(" + wind_speed_of_gust + ")"
 
-        const windDirection = getWindDirection(actualData.wind_from_direction)
-
-        console.log(isPositive(actualData.air_temperature))
-        console.log(isPositive("-1.5"))
-    
         return(
             <div style={componentstyles.forecast}>
             <h4 className="DarkBold">{props.location.displayName}</h4>
             <section style={{display:"flex", flexDirection:"column", justifyContent:"space-evenly"}}>
                 <article style={{display:"flex", flexDirection:"row", alignItems:"center"}}>
-                    <WeatherSymbol symbol_code={actualData.symbol_code}/>
-                    <div>
+                    <div style={{marginRight:"10px"}}>
                         {isPositive(actualData.air_temperature) ? 
                             (<p className="PositiveCelsius">{actualData.air_temperature} ℃</p>)
                             :(<p className="NegativeCelsius">{actualData.air_temperature} ℃</p>)
                         }
                     </div>
-
+                    <WeatherSymbol symbol_code={actualData.symbol_code}/>
+                    
                 </article>
                 <article style={{display:"flex", flexDirection:"row", alignItems:"center"}}>
                     <p className="Dark">{actualData.wind_speed} m/s</p>

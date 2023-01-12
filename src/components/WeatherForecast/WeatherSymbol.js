@@ -335,10 +335,8 @@ const symbolkeys = [
 ]
 
 function codeToKey(code){
-    console.log(symbolkeys)
     const key = symbolkeys.find((symbol) => {
         if(symbol.symbol_code == code){
-            console.log("Key returning:", symbol.image_key)
             return symbol
         }
     })
@@ -348,8 +346,6 @@ function codeToKey(code){
 export function WeatherSymbol(props){
     let svgKey = codeToKey(props.symbol_code) +".svg"
     let imagePath = "/WeatherSymbols/"+svgKey
-
-
 
     return(
         <div>

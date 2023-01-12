@@ -15,7 +15,6 @@ export const componentstyles = {
         padding: 10,
         margin: 10,
         backgroundColor: colors.grey,
-        border:"solid 2px red",
         width:"fit-content"
     },
     wrapper: {
