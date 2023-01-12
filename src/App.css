@@ -3,17 +3,19 @@
 }
 
 .AppHeader {
-  border: 2px dotted grey;
-  background-color: lightblue;
-  color: azure;
   font-size: x-large;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .AppBody{
-  border: 2px dotted grey;
-  background-color: lightblue;
   height:  100vh;
-  color: azure;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
 
 }
 

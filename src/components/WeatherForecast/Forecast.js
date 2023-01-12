@@ -1,6 +1,11 @@
 import { useState, useEffect } from "react";
+import "../componentStyles.css"
 
-import "../componentStyles.css";
+import { componentstyles } from "../ComponentStyles";
+import { WeatherSymbol } from "./WeatherSymbol";
+import { WindSymbol } from "./WindSymbol";
+
+
 
 function getCurrentSerie(data){
     let currentHour = Date().split(" ")[4].split(":")[0]
@@ -79,6 +84,10 @@ function getWindDirection(wind_from_direction){
     }
 }
 
+function isPositive(airTemperature){
+    return (parseInt(airTemperature) > 0)
+}
+
 export function Forecast(props){
     const [data, setData] = useState(null);
     const [loading, setLoading] = useState(true);
@@ -94,24 +103,32 @@ export function Forecast(props){
 
     if (data){
         const actualData = dataFormatter(data)
-        console.log("Formated data", actualData);
 
         let wind_speed_of_gust = actualData.wind_speed_of_gust
         wind_speed_of_gust = "(" + wind_speed_of_gust + ")"
 
         const windDirection = getWindDirection(actualData.wind_from_direction)
-        console.log("Wind:", windDirection)
-    
 
+        console.log(isPositive(actualData.air_temperature))
+        console.log(isPositive("-1.5"))
+    
         return(
-            <div className="ForecastCard">
-            <h3>{props.location.displayName}</h3>
+            <div style={componentstyles.forecast}>
+            <h4 className="DarkBold">{props.location.displayName}</h4>
             <section style={{display:"flex", flexDirection:"column", justifyContent:"space-evenly"}}>
-                <article style={{display:"flex", flexDirection:"row"}}>
-                    <p>{actualData.air_temperature} ℃ {actualData.symbol_code}</p>
+                <article style={{display:"flex", flexDirection:"row", alignItems:"center"}}>
+                    <WeatherSymbol symbol_code={actualData.symbol_code}/>
+                    <div>
+                        {isPositive(actualData.air_temperature) ? 
+                            (<p className="PositiveCelsius">{actualData.air_temperature} ℃</p>)
+                            :(<p className="NegativeCelsius">{actualData.air_temperature} ℃</p>)
+                        }
+                    </div>
+
                 </article>
-                <article>
-                    <p>{actualData.wind_speed}{wind_speed_of_gust} m/s fra {windDirection}.</p>
+                <article style={{display:"flex", flexDirection:"row", alignItems:"center"}}>
+                    <p className="Dark">{actualData.wind_speed} m/s</p>
+                    <WindSymbol wind_from_direction={actualData.wind_from_direction}/>
                 </article>
             </section>
         </div>

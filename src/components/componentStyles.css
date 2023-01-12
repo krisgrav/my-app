@@ -1,13 +1,16 @@
-.ForecastCard{
-    background-color: azure;
-    color: darkgrey;
-    border-radius: 8px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 16px;
+.DarkBold{
+    font-weight: bolder;
+    color:#1e262b
 }
 
-.WeatherForecast{
-    max-width: 500px;
+.Dark{
+    color:#1e262b
+}
+
+.NegativeCelcius{
+    color: rgb(0, 109, 226);
+}
+
+.PositiveCelsius{
+    color: rgb(180, 2, 2);
 }
