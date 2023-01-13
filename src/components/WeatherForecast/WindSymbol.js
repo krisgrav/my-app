@@ -28,6 +28,7 @@ export function WindSymbol(props){
         }
     }
 
+
     let windCode = getWindDirection(props.wind_from_direction)+".svg"
     let imagePath = "/WindSymbols/"+windCode
 
