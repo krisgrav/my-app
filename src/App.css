@@ -15,9 +15,23 @@
   padding: 10px;
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
+  align-items: center
 
 }
 
+.Footer{
+  display:flex;
+  flex-direction:row;
+  position:absolute;
+  top:80%;
+  width: 100%;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.Headline{
+  color: #3c4345;
+  font-weight: lighter;
+}
 
 

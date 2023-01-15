@@ -1,8 +1,10 @@
 import './App.css';
+import "./Fonts.css";
+
 import { TimeAndDate } from './components/TimeAndDate';
-import { Forecast } from './components/WeatherForecast/Forecast';
-import { locations } from './components/WeatherForecast/Locations';
-import { WeatherForecast } from './components/WeatherForecast/WeatherForecast';
+import { WeatherForecast } from './components/WeatherForecast';
+import { Information } from './components/Information';
+
 
 
 
@@ -10,14 +12,26 @@ import { WeatherForecast } from './components/WeatherForecast/WeatherForecast';
 function App() {
   
   return (
-    <div className="App">
+    <div>
       <header className='AppHeader'>
-        <TimeAndDate/>
-        <Forecast location={locations[2]}/>
+       <h1 className='DarkLight'>
+          Header
+       </h1>
       </header>
-      <body className='AppBody'>
-      </body>
-    </div>
+      <div style={{display:"flex", flexDirection:"row", justifyContent:"space-around"}}>
+        <section style={{height:"fit-content", width:"60%"}}>
+          <Information/>
+        </section>
+        <aside style={{float:"right", border:"1px dotted grey", width:"30%",}}>
+
+        </aside>
+      
+      </div>
+      <footer className='Footer'>
+        <TimeAndDate/>
+        <WeatherForecast/>
+      </footer>
+      </div>
   );
 }
 

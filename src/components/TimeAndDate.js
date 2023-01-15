@@ -1,6 +1,9 @@
 import React, {useState, useEffect} from "react";
 
-import "./componentStyles.css"
+import "./Components.css"
+import "../Fonts.css"
+
+
 
 export function TimeAndDate(){
     const [day, setDay] = useState()
@@ -9,6 +12,7 @@ export function TimeAndDate(){
     const [year, setYear] = useState()
     const [hour, setHour] = useState()
     const [minute, setMinute] = useState()
+    const [second, setSecond] = useState()
     const refreshInterval = 10000
 
     function getNow(){
@@ -19,7 +23,8 @@ export function TimeAndDate(){
                 month:data[1],
                 year:parseInt(data[3]),
                 hour:data[4].split(":")[0],
-                minute:data[4].split(":")[1]
+                minute:data[4].split(":")[1],
+                second:data[4].split(":")[2]
             }
     }
 
@@ -31,6 +36,7 @@ export function TimeAndDate(){
         setYear(now.year)
         setHour(now.hour)
         setMinute(now.minute)
+        setSecond(now.second)
     }
 
     useEffect(() => {
@@ -42,9 +48,8 @@ export function TimeAndDate(){
     }, []
     )
 
-
     return (
-        <div>
+        <div className="TimeAndDate">
             <h4 className="Dark">{weekday} {day}. {month}</h4>
             <h1 className="Dark">{hour}:{minute}</h1>
         </div>

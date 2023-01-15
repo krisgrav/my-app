@@ -1,10 +1,15 @@
+.DarkLight{
+    color: #3c4345;
+    font-weight: lighter;
+  }
+
 .DarkBold{
     font-weight: bolder;
-    color:#1e262b
+    color:#3c4345
 }
 
 .Dark{
-    color:#1e262b
+    color:#3c4345
 }
 
 .NegativeCelcius{
